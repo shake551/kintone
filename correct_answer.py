@@ -17,5 +17,20 @@ def get_correct_answers():
 
     return correct_answers
 
+def get_question_correct_answers(question_id):
+    select = "question_id = {0}".format(question_id)
+    
+    question_correct_answers = correct_answer_app.select(select)
 
-get_correct_answers()
+    records = question_correct_answers.records
+
+    print(records)
+
+    for record in records:
+        print(record['answer']['value'])
+
+    print(question_correct_answers)
+
+    return question_correct_answers
+
+get_question_correct_answers(1)

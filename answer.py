@@ -22,4 +22,15 @@ def get_answers():
     return answers
 
 
-get_answers()
+# def get_answer_times(question_id):
+#     select = "question_id = {0}".format(question_id)
+#     answer_times = answer_app.select(select)
+
+#     records = answer_times.records
+
+#     for record in records:
+#         print(record['created_at']['value'])
+
+#     return answer_times
+
+# get_answer_times(1)
