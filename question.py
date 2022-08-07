@@ -20,4 +20,22 @@ def get_questions():
     return questions
 
 
-get_questions()
+#get_questions()
+
+def get_question_text(id):
+    select = "id = {0}".format(id)
+    
+    question_text = question_app.select(select)
+
+    records = question_text.records
+
+    #print(records)
+
+    for record in records:
+        print(record['question']['value'])
+
+    #print(question_text)
+
+    return question_text
+
+get_question_text(1)

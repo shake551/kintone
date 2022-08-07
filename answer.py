@@ -19,7 +19,7 @@ def get_answers():
 
     return answers
 
-get_answers()
+#get_answers()
 
 #回答時間を取得する関数
 def get_answer_times(question_id):
@@ -27,6 +27,8 @@ def get_answer_times(question_id):
     answer_times = answer_app.select(select)
 
     records = answer_times.records
+
+    print(records)
 
     for record in records:
         print(record['created_at']['value'])
