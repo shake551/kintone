@@ -15,11 +15,11 @@ class Answer(model.kintoneModel):
 
 
 def get_answers():
-    questions = answer_app.select().models(Answer)
+    answers = answer_app.select().models(Answer)
 
-    print(vars(questions[0]))
+    print(vars(answers[0]))
 
-    return questions
+    return answers
 
 
 get_answers()
