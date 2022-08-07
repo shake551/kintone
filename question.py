@@ -42,3 +42,27 @@ def get_question_text(id):
 #get_question_text(1)
 
 print(get_question_text(1))
+
+
+def get_question_type(id):
+    select = "id = {0}".format(id)
+    
+    question_type = question_app.select(select)
+
+    records = question_type.records
+
+    #print(records)
+
+    # for record in records:
+    #     print(record['type']['value'])
+
+    #print(question_type)
+
+    #string型に変換
+    question_type = question_type.records[0]['type']['value']
+
+    return question_type
+
+#get_question_text(1)
+
+print(get_question_type(1))
