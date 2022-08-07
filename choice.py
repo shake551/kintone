@@ -20,9 +20,17 @@ def get_choices():
 
 
 def get_question_choices(question_id):
-    question_choices = choice_app.select("question_id = {0}".format(question_id)).models(Choice)
+    question_choices = choice_app.select("question_id = {0} order by id asc".format(question_id)).models(Choice)
 
-    print(vars(question_choices[0]))
+    res = []
+
+    for choice in question_choices:
+        res.append({
+            'id': choice.id,
+            'content': choice.content
+        })
+
+    print(res)
 
     return question_choices
 
