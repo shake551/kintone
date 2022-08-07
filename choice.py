@@ -19,4 +19,12 @@ def get_choices():
     return choices
 
 
-get_choices()
+def get_question_choices(question_id):
+    question_choices = choice_app.select("question_id = {0}".format(question_id)).models(Choice)
+
+    print(vars(question_choices[0]))
+
+    return question_choices
+
+
+get_question_choices(1)
