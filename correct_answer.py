@@ -25,12 +25,15 @@ def get_question_correct_answers(question_id):
 
     records = question_correct_answers.records
 
-    print(records)
+    # print(records)
 
-    for record in records:
-        print(record['answer']['value'])
+    # for record in records:
+    #     print(record['answer']['value'])
 
-    print(question_correct_answers)
+    # print(type(question_correct_answers))
+
+    #string型に変換
+    question_correct_answers = question_correct_answers.records[0]['answer']['value']
 
     return question_correct_answers
 

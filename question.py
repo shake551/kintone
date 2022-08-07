@@ -11,14 +11,12 @@ class Question(model.kintoneModel):
         self.type = ""
         self.publish_date = ""
 
-
 def get_questions():
     questions = question_app.select().models(Question)
 
     print(vars(questions[0]))
 
     return questions
-
 
 #get_questions()
 
@@ -31,11 +29,16 @@ def get_question_text(id):
 
     #print(records)
 
-    for record in records:
-        print(record['question']['value'])
+    # for record in records:
+    #     print(record['question']['value'])
 
     #print(question_text)
 
+    #string型に変換
+    question_text = question_text.records[0]['question']['value']
+
     return question_text
 
-get_question_text(1)
+#get_question_text(1)
+
+print(get_question_text(1))
