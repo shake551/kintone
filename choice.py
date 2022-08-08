@@ -34,4 +34,5 @@ def get_question_choices(question_id):
 
     return question_choices
 
+
 get_question_choices(1)

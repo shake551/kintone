@@ -2,6 +2,7 @@ from pykintone import model
 
 from setting import answer_app
 
+
 class Answer(model.kintoneModel):
     def __init__(self):
         super(Answer, self).__init__()
@@ -12,6 +13,7 @@ class Answer(model.kintoneModel):
         self.created_at = ""
         self.updated_at = ""
 
+
 def get_answers():
     answers = answer_app.select().models(Answer)
 
@@ -19,9 +21,10 @@ def get_answers():
 
     return answers
 
-#get_answers()
 
-#回答時間を取得する関数
+# get_answers()
+
+# 回答時間を取得する関数
 def get_answer_times(question_id):
     select = "question_id = {0}".format(question_id)
     answer_times = answer_app.select(select)
@@ -34,5 +37,6 @@ def get_answer_times(question_id):
         print(record['created_at']['value'])
 
     return answer_times
+
 
 get_answer_times(1)

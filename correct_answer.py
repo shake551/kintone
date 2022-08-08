@@ -17,10 +17,11 @@ def get_correct_answers():
 
     return correct_answers
 
-#正解の解答の番号を取得する関数
+
+# 正解の解答の番号を取得する関数
 def get_question_correct_answers(question_id):
     select = "question_id = {0}".format(question_id)
-    
+
     question_correct_answers = correct_answer_app.select(select)
 
     records = question_correct_answers.records
@@ -32,9 +33,10 @@ def get_question_correct_answers(question_id):
 
     # print(type(question_correct_answers))
 
-    #string型に変換
+    # string型に変換
     question_correct_answers = question_correct_answers.records[0]['answer']['value']
 
     return question_correct_answers
+
 
 get_question_correct_answers(1)
