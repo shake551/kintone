@@ -1,6 +1,7 @@
 from pykintone import model
 
 from setting import answer_app
+from correct_answer import get_question_correct_answers
 
 
 class Answer(model.kintoneModel):
@@ -60,4 +61,19 @@ def post_answer(question_id, content, user_id):
     print(created_id)
 
 
-post_answer(1, 1, 1)
+def obtain_ranking(question_id):
+    correct_answer = get_question_correct_answers(question_id)
+
+    db_data = answer_app \
+        .select("question_id = {0} and content = {1} order by updated_at asc".format(question_id, correct_answer)) \
+        .models(Answer)
+
+    ranking = []
+
+    for i, data in enumerate(db_data):
+        ranking.append({'num': i+1, 'user_id': data.user_id, 'time': data.updated_at.strftime('%Y/%m/%d %H:%M')})
+
+    print(ranking)
+
+
+obtain_ranking(1)
