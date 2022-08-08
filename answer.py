@@ -14,6 +14,14 @@ class Answer(model.kintoneModel):
         self.updated_at = ""
 
 
+class AnswerPost(model.kintoneModel):
+    def __init__(self):
+        super(AnswerPost, self).__init__()
+        self.content = ""
+        self.user_id = ""
+        self.question_id = ""
+
+
 def get_answers():
     answers = answer_app.select().models(Answer)
 
@@ -39,4 +47,17 @@ def get_answer_times(question_id):
     return answer_times
 
 
-get_answer_times(1)
+def post_answer(question_id, content, user_id):
+    answer = AnswerPost()
+
+    answer.question_id = question_id
+    answer.content = content
+    answer.user_id = user_id
+
+    created_id = answer_app.create(answer).record_id
+
+    print(vars(answer))
+    print(created_id)
+
+
+post_answer(1, 1, 1)
