@@ -75,5 +75,7 @@ def obtain_ranking(question_id):
 
     print(ranking)
 
+    return ranking
+
 
 obtain_ranking(1)
